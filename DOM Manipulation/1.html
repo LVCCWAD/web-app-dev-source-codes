@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Manipulation Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: lightgray;
+        margin: 10px 0;
+      }
+      .hidden {
+        display: none;
+      }
+      .highlight {
+        border: 3px solid red;
+      }
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        padding: 5px;
+        background: #eee;
+        margin-bottom: 5px;
+      }
+      button {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="main-title">Original Title</h1>
+
+    <p id="description">This is some text.</p>
+
+    <a id="myLink" href="https://google.com" target="_blank">Go to Google</a>
+
+    <div class="box"></div>
+
+    <button id="changeContentBtn">Change Content</button>
+    <button id="toggleBoxBtn">Toggle Box Highlight</button>
+    <button id="addItemBtn">Add List Item</button>
+
+    <ul id="itemList">
+      <li class="list-item">Item 1</li>
+      <li class="list-item">Item 2</li>
+    </ul>
+
+    <form id="signup">
+      <input type="text" id="username" placeholder="Enter username" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      // Selectors
+      const title = document.querySelector("#main-title");
+      const description = document.querySelector("#description");
+      const link = document.querySelector("#myLink");
+      const box = document.querySelector(".box");
+      const list = document.querySelector("#itemList");
+
+      // Button references
+      const changeContentBtn = document.querySelector("#changeContentBtn");
+      const toggleBoxBtn = document.querySelector("#toggleBoxBtn");
+      const addItemBtn = document.querySelector("#addItemBtn");
+    </script>
+  </body>
+</html>

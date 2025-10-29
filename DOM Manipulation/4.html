@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Manipulation Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: lightgray;
+        margin: 10px 0;
+      }
+      .hidden {
+        display: none;
+      }
+      .highlight {
+        border: 3px solid red;
+      }
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        padding: 5px;
+        background: #eee;
+        margin-bottom: 5px;
+        border: 2px solid red;
+      }
+      button {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="addItemBtn">Add List Item</button>
+    <button id="removeItem">Remove Item</button>
+
+    <ul id="itemList"></ul>
+    <script>
+      // Selectors
+      const list = document.querySelector("#itemList");
+      const addItemBtn = document.querySelector("#addItemBtn");
+      const removeItem = document.querySelector("#removeItem");
+
+      // Creating & Removing elements
+      addItemBtn.addEventListener("click", () => {
+        const newItem = document.createElement("li");
+        newItem.textContent =
+          "You have " + list.children.length + " notifications!";
+        list.appendChild(newItem);
+      });
+
+      list.addEventListener("click", (element) => {
+        element.target.remove();
+      });
+
+      // addItemBtn.addEventListener("click", () => {
+      //   const newItem = document.createElement("li");
+      //   newItem.textContent = "New item " + (list.children.length + 1);
+      //   list.appendChild(newItem);
+
+      //   // // Remove after 5 seconds
+      //   // setTimeout(() => newItem.remove(), 5000);
+      // });
+
+      // Event listeners & event object
+      list.addEventListener("click", (element) => {
+        console.log(element.target.tagName);
+        if (element.target.tagName === "LI") {
+          alert("You clicked on: " + element.target.textContent);
+        }
+      });
+    </script>
+  </body>
+</html>

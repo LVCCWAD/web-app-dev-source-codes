@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Clock (Philippines Time)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: #f4f4f4;
+      }
+      #clock {
+        display: inline-block;
+        padding: 32px 44px;
+        border-radius: 30px;
+        background: #ffffff;
+        color: #333;
+        font-size: 3.5rem;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+      #date {
+        display: block;
+        margin-top: 4px;
+        font-size: 1.9rem;
+        color: #666;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <span id="time">00:00:00 AM</span>
+      <span id="date"></span>
+    </div>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+
+        // Time in 12-hour format with AM/PM, Philippines local time
+        const timeString = now.toLocaleTimeString("en-US", {
+          timeZone: "Asia/Manila",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        });
+
+        // Date in Philippines local time
+        const dateString = now.toLocaleDateString("en-US", {
+          timeZone: "Asia/Manila",
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+        document.getElementById("time").textContent = timeString;
+        document.getElementById("date").textContent = dateString;
+      }
+
+      // Update immediately, then every second
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
+  </body>
+</html>

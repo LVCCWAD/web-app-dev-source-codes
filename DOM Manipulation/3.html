@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Manipulation Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .box1 {
+        width: 100px;
+        height: 100px;
+        background: lightgray;
+        margin: 10px 0;
+      }
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background: lightgray;
+        margin: 10px 0;
+      }
+      .hidden {
+        display: none;
+      }
+      .highlight {
+        border: 3px solid yellow;
+      }
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        padding: 5px;
+        background: #eee;
+        margin-bottom: 5px;
+      }
+      button {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <button id="toggleBoxBtn">Toggle Box Highlight</button>
+
+    <script>
+      // Selectors
+      const box1 = document.querySelector(".box1");
+      const box2 = document.querySelector(".box2");
+      const boxes = [box1, box2];
+      // Button references
+      const toggleBoxBtn = document.querySelector("#toggleBoxBtn");
+
+      // Styling with JS
+      boxes.forEach((element) => {
+        element.style.backgroundColor = "lightblue";
+        element.style.margin = "20px 0";
+        element.style.backgroundColor = "red";
+      });
+
+      toggleBoxBtn.addEventListener("click", () => {
+        box1.classList.add("highlight");
+        box2.classList.add("highlight");
+      });
+    </script>
+  </body>
+</html>

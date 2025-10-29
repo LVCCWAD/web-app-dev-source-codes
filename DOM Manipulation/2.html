@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Manipulation Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: lightgray;
+        margin: 10px 0;
+      }
+      .hidden {
+        display: none;
+      }
+      .highlight {
+        border: 3px solid red;
+      }
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        padding: 5px;
+        background: #eee;
+        margin-bottom: 5px;
+      }
+      button {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="main-title">Original Title</h1>
+
+    <p id="description">This is some text.</p>
+
+    <a id="myLink" href="https://google.com" target="_blank">Go to Google</a>
+
+    <button id="changeContentBtn">Change Content</button>
+    <button id="consoleLog">Console Log</button>
+
+    <script>
+      // Selectors
+      const title = document.getElementById("main-title");
+      const description = document.querySelector("#description");
+      const link = document.querySelector("#myLink");
+      const box = document.querySelector(".box");
+      const list = document.querySelector("#itemList");
+
+      // Button references
+      const changeContentBtn = document.querySelector("#changeContentBtn");
+      const consoleLog = document.querySelector("#consoleLog");
+
+      // Reading & Modifying content
+      changeContentBtn.addEventListener("click", () => {
+        title.textContent = "<strong>Welcome to DOM Manipulation!</strong>";
+        title.innerHTML = "<i>Changed</i>";
+        description.innerHTML =
+          "Now this <strong>paragraph</strong> has changed.";
+      });
+
+      // Reading & Modifying attributes
+      consoleLog.addEventListener("click", () => {
+        console.log("Original link:", link.getAttribute("href"));
+        link.setAttribute("href", "https://accounts.google.com");
+      });
+    </script>
+  </body>
+</html>

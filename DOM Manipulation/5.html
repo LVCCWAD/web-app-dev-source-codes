@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Manipulation Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: lightgray;
+        margin: 10px 0;
+      }
+      .hidden {
+        display: none;
+      }
+      .highlight {
+        border: 3px solid red;
+      }
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        padding: 5px;
+        background: #eee;
+        margin-bottom: 5px;
+      }
+      button {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="signup">
+      <input type="text" id="username" placeholder="Enter username" />
+      <button id="button" type="submit">Submit</button>
+    </form>
+
+    <script>
+      // Handling forms
+      const form = document.querySelector("#signup");
+      const input = document.querySelector("#username");
+
+      form.addEventListener("submit", (element) => {
+        element.preventDefault();
+        if (input.value.trim() === "") {
+          alert("Username cannot be empty!");
+        } else {
+          alert("Submitted username: " + input.value);
+          input.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
